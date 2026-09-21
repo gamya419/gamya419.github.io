@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnf红眼-红眼职业深度解析、加点配装与实战攻略</title>
+    <meta name="description" content="本站提供DNF红眼（狂战士）职业全方位指南，包括最新版本加点方案、毕业装备搭配推荐、刷图连招技巧及红眼玩家社区交流。">
+    <meta name="keywords" content="dnf红眼, 狂战士, DNF攻略, 狂战士加点, DNF装备搭配, 红眼刷图">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-red: #d93025;
+            --dark-red: #8b0000;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2d2d2d;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent-gold: #ffd700;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-red);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            color: var(--text-sub);
+            font-weight: normal;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 2px solid var(--primary-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/dnfred/1600/600') no-repeat center center/cover;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(217, 48, 37, 0.3);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-2px);
+        }
+
+        /* Core Info Grid */
+        .core-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid transparent;
+        }
+
+        .stat-card.red { border-color: var(--primary-red); }
+        .stat-card.gold { border-color: var(--accent-gold); }
+        .stat-card.blue { border-color: #3498db; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Main Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; } /* Simplified mobile nav for demo */
+        }
+
+        /* Article / Guide Section */
+        .guide-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .guide-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .guide-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .guide-content h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #444;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+
+        /* Sidebar */
+        aside .widget {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .skill-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #444;
+            font-size: 0.95rem;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .dot-max { background-color: var(--accent-gold); }
+        .dot-low { background-color: #666; }
+
+        /* Equipment Section */
+        .equipment-section {
+            background-color: #252525;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .equip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .equip-item {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .equip-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .equip-img {
+            height: 160px;
+            background-color: #3a3a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 3rem;
+        }
+
+        .equip-info {
+            padding: 15px;
+        }
+
+        .equip-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .equip-type {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .rank-badge {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .section-title { font-size: 1.4rem; }
+            .nav-wrapper { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>DNF</span>红眼攻略
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">加点推荐</a></li>
+                    <li><a href="#">装备搭配</a></li>
+                    <li><a href="#">刷图连招</a></li>
+                    <li><a href="#">图鉴百科</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>狂战士：鲜血的征服者</h1>
+                <p>掌握嗜血之力，化身战场收割机。无论你是平民玩家还是土豪大佬，这里都有最适合你的红眼进阶之路。</p>
+                <a href="#builds" class="cta-btn">查看最新毕业搭配</a>
+            </div>
+        </section>
+
+        <!-- Core Stats -->
+        <div class="container">
+            <section class="core-stats">
+                <article class="stat-card red">
+                    <div class="stat-value">高爆发</div>
+                    <div class="stat-label">瞬间伤害能力</div>
+                </article>
+                <article class="stat-card gold">
+                    <div class="stat-value">易上手</div>
+                    <div class="stat-label">操作门槛低</div>
+                </article>
+                <article class="stat-card blue">
+                    <div class="stat-value">续航强</div>
+                    <div class="stat-label">技能形态优秀</div>
+                </article>
+            </section>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="container">
+            <div class="content-grid">
+                <!-- Left Column: Guides -->
+                <div class="main-content">
+                    <h2 class="section-title">职业深度解析 <span>Red Knight Analysis</span></h2>
+                    
+                    <article class="guide-card">
+                        <div class="guide-header">
+                            <div class="guide-icon">R</div>
+                            <div class="guide-content">
+                                <h2>职业定位与技能形态</h2>
+                            </div>
+                        </div>
+                        <div class="guide-body">
+                            <p>狂战士（红眼）是DNF中经典的百分比物理输出职业。其核心优势在于技能范围大、伤害高且具有吸血能力，极大提升了生存率和续航。</p>
+                            <p>在当前版本中，红眼的技能形态得到了显著优化。一觉“崩山裂地斩”判定范围扩大，二觉“血魔·弑天”提供了稳定的霸体和无敌帧，使其在团本和攻坚战中的表现更加稳定。</p>
+                            <div style="margin-top: 15px;">
+                                <span class="tag">物理百分比</span>
+                                <span class="tag">鬼剑士</span>
+                                <span class="tag">高爆发</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="guide-card">
+                        <div class="guide-header">
+                            <div class="guide-icon">A</div>
+                            <div class="guide-content">
+                                <h2>加点思路指南</h2>
+                            </div>
+                        </div>
+                        <div class="guide-body">
+                            <p>加点需根据装备流派调整，核心思路是优先点满核心输出技能。</p>
+                            <ul style="margin-left: 20px; color: #ccc; margin-bottom: 10px;">
+                                <li><strong>小技能：</strong> 嗜血之魂、鲜血掠夺、鲜血暴走作为核心Buff技能必须加满。</li>
+                                <li><strong>核心输出：</strong> 血气爆发、崩山裂地斩、鲜血之握、怒气爆发是爆发来源，建议全部加满。</li>
+                                <li><strong>TP分配：</strong> 优先点给大技能（如二觉、一觉），副技能视情况分配。</li>
+                            </ul>
+                            <p>注意：若选择出血流，需保留部分技能用于触发出血词条。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Right Column: Sidebar -->
+                <aside>
+                    <div class="widget">
+                        <h3 class="widget-title">技能加点参考</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-max"></span>鲜血暴走</span>
+                                <span>Lv.20</span>
+                            </li>
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-max"></span>嗜血之魂</span>
+                                <span>Lv.20</span>
+                            </li>
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-max"></span>崩山裂地斩</span>
+                                <span>Lv.20</span>
+                            </li>
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-max"></span>怒气爆发</span>
+                                <span>Lv.20</span>
+                            </li>
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-max"></span>血气爆发</span>
+                                <span>Lv.20</span>
+                            </li>
+                            <li>
+                                <span class="skill-name"><span class="skill-dot dot-low"></span>十字斩</span>
+                                <span>Lv.1</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">热门流派</h3>
+                        <ul class="skill-list">
+                            <li><a href="#">出血流（主流）</a></li>
+                            <li><a href="#">直伤流（手搓）</a></li>
+                            <li><a href="#">攻速流（低配）</a></li>
+                            <li><a href="#">MP流（续航）</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Equipment Section -->
+            <section id="builds">
+                <h2 class="section-title">毕业装备推荐 <span>Best In Slot</span></h2>
+                <p style="margin-bottom: 20px; color: #aaa;">以下推荐基于当前版本（以最新国服版本为准）的主流搭配，适合大号打造。</p>
+                
+                <div class="equip-grid">
+                    <!-- Item 1 -->
+                    <div class="equip-item">
+                        <div class="equip-img">⚔️</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">狂战士传说武器</h3>
+                            <div class="equip-type">武器 / 神话 / 物理攻击</div>
+                            <span class="rank-badge">神话</span>
+                            <span class="rank-badge">首选</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">提供高额物理攻击力与属性强化，被动技能增强出血伤害。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="equip-item">
+                        <div class="equip-img">🛡️</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">深潜迷航护肩</h3>
+                            <div class="equip-type">防具 / 533 / 属强</div>
+                            <span class="rank-badge">热门</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">深潜迷航套装，提供高额属强加成与技能攻击力。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="equip-item">
+                        <div class="equip-img">🧥</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">蓝灵绿玉石上衣</h3>
+                            <div class="equip-type">上衣 / 533 / 技攻</div>
+                            <span class="rank-badge">直伤</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">配合手搓护石，最大化直伤伤害，适合追求极限爆发。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="equip-item">
+                        <div class="equip-img">👖</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">深潜迷航下装</h3>
+                            <div class="equip-type">下装 / 533 / 技攻</div>
+                            <span class="rank-badge">主流</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">增加冷却时间，优化技能循环，保证技能覆盖率。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="equip-item">
+                        <div class="equip-img">👢</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">深潜迷航鞋子</h3>
+                            <div class="equip-type">鞋子 / 533 / 技攻</div>
+                            <span class="rank-badge">主流</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">提供移动速度与技能攻击力，改善跑图手感。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="equip-item">
+                        <div class="equip-img">💍</div>
+                        <div class="equip-info">
+                            <h3 class="equip-name">深潜迷航项链</h3>
+                            <div class="equip-type">首饰 / 3件套 / 技攻</div>
+                            <span class="rank-badge">主流</span>
+                            <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">核心输出首饰，提供高额技能攻击力加成。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系方式</a>
+                <a href="#">网站地图</a>
+            </div>
+            <p>&copy; 2023 DNF红眼攻略网. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #444;">本站内容仅供玩家参考，游戏数据以官方更新为准。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
