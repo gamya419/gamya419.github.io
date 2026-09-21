@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西瓜霜霉病-科学防治指南与种植技术参考</title>
+    <meta name="description" content="西瓜霜霉病是西瓜种植中常见的真菌性病害，本文提供详细的发病症状识别、发生规律、科学防治方法（包括化学药剂与生物防治）以及田间管理建议，帮助瓜农有效控制霜霉病爆发。">
+    <meta name="keywords" content="西瓜霜霉病, 西瓜病害, 西瓜种植技术, 霜霉病防治, 农业植保">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-green: #2e7d32;
+            --dark-green: #1b5e20;
+            --light-bg: #f1f8e9;
+            --text-main: #333333;
+            --text-light: #666666;
+            --accent-red: #d32f2f;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .cta-button {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark-green);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #e8f5e9;
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Grid */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Symptom Card */
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Control Section */
+        .control-section {
+            background-color: var(--light-bg);
+        }
+
+        .control-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .step-item {
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-green);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Chemical Table */
+        .table-container {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f9f9f9;
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Prevention Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-box {
+            background: #fff;
+            padding: 20px;
+            border-left: 4px solid var(--primary-green);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            box-shadow: var(--shadow);
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+
+        .tip-box p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: #fff;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-main);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #c8e6c9;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #a5d6a7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>🥒</span> 西瓜种植助手
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#symptoms">发病症状</a></li>
+                    <li><a href="#prevention">预防措施</a></li>
+                    <li><a href="#treatment">防治方法</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">获取农技支持</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>西瓜霜霉病</h1>
+                <p>西瓜霜霉病是瓜类最严重的病害之一，一旦爆发会导致叶片迅速枯死，严重影响产量。掌握科学的识别与防治技术是保障丰收的关键。</p>
+                <div class="hero-tags">
+                    <span class="tag">真菌性病害</span>
+                    <span class="tag">低温高湿</span>
+                    <span class="tag">叶斑症状</span>
+                    <span class="tag">综合防治</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Symptoms Section -->
+        <section id="symptoms" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>如何识别西瓜霜霉病</h2>
+                    <p>早期准确识别是及时防治的前提，请在田间仔细观察叶片变化。</p>
+                </div>
+                
+                <div class="symptom-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/watermelon1/400/250" alt="叶片病斑示意图" class="card-image">
+                        <div class="card-content">
+                            <h3>初期症状：黄色小点</h3>
+                            <p>发病初期，叶片背面会出现水浸状的小点，随后正面显现出淡黄色或黄绿色病斑。此时症状隐蔽，需仔细翻看叶背。</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/watermelon2/400/250" alt="病斑扩大与病脉" class="card-image">
+                        <div class="card-content">
+                            <h3>中期症状：多角形病斑</h3>
+                            <p>随着病情发展，病斑逐渐扩大，受叶脉限制，形成多角形的黄褐色或暗褐色斑点。叶片正面颜色较深，背面产生霜状霉层。</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/watermelon3/400/250" alt="叶片枯死" class="card-image">
+                        <div class="card-content">
+                            <h3>后期症状：叶片枯黄</h3>
+                            <p>严重时，多个病斑连片，导致叶片枯黄干枯，仅留主脉呈网状。植株光合作用能力大幅下降，果实生长停滞，品质变差。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="section control-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>综合预防措施</h2>
+                    <p>“预防为主，综合防治”是农业植保的核心原则，减少发病几率。</p>
+                </div>
+
+                <div class="control-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>选用抗病品种</h4>
+                            <p>选择抗病性强、耐湿性好的西瓜品种进行种植，这是最经济有效的手段。</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>合理密植与通风</h4>
+                            <p>控制种植密度，及时整枝打杈，改善田间通风透光条件，降低田间湿度。</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>清洁田园</h4>
+                            <p>及时清除田间病叶、病残体，并带出田外深埋或销毁，减少病菌源。</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>科学浇水</h4>
+                            <p>避免大水漫灌，提倡膜下滴灌或暗灌。浇水后及时排湿，避免夜间结露。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px; color: var(--dark-green);">日常管理小贴士</h3>
+                    <div class="tips-grid">
+                        <div class="tip-box">
+                            <h4>轮作倒茬</h4>
+                            <p>与非瓜类作物实行3年以上轮作，可有效切断病菌传播途径。</p>
+                        </div>
+                        <div class="tip-box">
+                            <h4>种子消毒</h4>
+                            <p>播种前用温水或药剂浸种，杀灭种子表面携带的病菌。</p>
+                        </div>
+                        <div class="tip-box">
+                            <h4>避雨栽培</h4>
+                            <p>搭建塑料大棚或小拱棚进行覆盖栽培，能有效阻挡雨水传播。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatment Section -->
+        <section id="treatment" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>科学防治方法</h2>
+                    <p>当发现病情时，应立即采取化学药剂防治，并轮换用药以防抗药性产生。</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>防治阶段</th>
+                                <th>推荐药剂</th>
+                                <th>使用方法与注意事项</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>发病初期</strong></td>
+                                <td><strong>50%烯酰吗啉可湿性粉剂</strong></td>
+                                <td>800-1000倍液喷雾，重点喷洒叶背，每7-10天一次。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>病情严重期</strong></td>
+                                <td><strong>72%霜脲·锰锌可湿性粉剂</strong></td>
+                                <td>600-800倍液喷雾，需均匀覆盖，注意轮换使用不同作用机理的药剂。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>生物防治</strong></td>
+                                <td><strong>多抗霉素或春雷霉素</strong></td>
+                                <td>200-300倍液喷雾，对环境友好，适合在病害初期使用。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>保护性药剂</strong></td>
+                                <td><strong>代森锰锌或百菌清</strong></td>
+                                <td>发病前预防使用，600倍液喷雾，保护叶片不受侵染。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 30px; background: #fff3e0; padding: 20px; border-radius: var(--radius); border-left: 5px solid #ff9800;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">⚠️ 农药使用安全提示</h4>
+                    <p style="color: #5d4037; font-size: 0.9rem;">
+                        1. 严格遵守农药安全间隔期，确保西瓜成熟采收时农药残留不超标。<br>
+                        2. 喷药时注意个人防护，佩戴口罩、手套和防护服。<br>
+                        3. 严禁在高温烈日下施药，宜在上午10点前或下午4点后进行，防止药害。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: #fafafa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>霜霉病和炭疽病有什么区别？</summary>
+                        <div class="faq-content">
+                            <p>主要区别在于病斑形状和霉层颜色。霜霉病病斑呈多角形，受叶脉限制，叶背有白色霜状霉层；炭疽病病斑多为圆形或近圆形，有同心轮纹，潮湿时病斑上出现粉红色黏质物。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>下雨天能不能喷药？</summary>
+                        <div class="faq-content">
+                            <p>下雨天一般不建议喷药，因为雨水会冲刷掉药液，且雨天湿度大，霜霉病极易爆发。最好在雨停后，叶片表面水分干燥时进行喷药防治。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>如何判断药剂是否有效？</summary>
+                        <div class="faq-content">
+                            <p>喷药后3-5天观察，如果病斑停止扩大，新长出的叶片没有新病斑，说明防治有效。如果病情继续发展，可能需要调整药剂或浓度。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>大棚种植如何预防霜霉病？</summary>
+                        <div class="faq-content">
+                            <p>大棚种植要重点控制温度和湿度。白天保持25-30℃，夜间15℃左右；加强通风排湿，必要时使用烟雾剂或粉尘剂进行防治，减少水分喷施。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #a5d6a7; font-size: 0.9rem; line-height: 1.8;">
+                        本站致力于为广大农户提供科学、实用的农作物病虫害防治知识。我们专注于西瓜等经济作物的种植技术研究与推广，助力农业增效、农民增收。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#symptoms">发病症状识别</a></li>
+                        <li><a href="#prevention">预防措施</a></li>
+                        <li><a href="#treatment">防治药剂表</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：agri@support.com</li>
+                        <li>地址：农业科技示范区A区88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 西瓜种植助手 版权所有 | 仅供农业技术参考</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
