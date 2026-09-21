@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="魔咒女王 - 探索暗黑奇幻世界中的魔法奥秘与诅咒力量。提供魔咒分类指南、施法技巧解析、禁忌咒语警示及角色背景故事。">
+    <meta name="keywords" content="魔咒女王, 魔法咒语, 暗黑奇幻, 诅咒力量, 魔法技巧, 禁忌魔法">
+    <title>魔咒女王-暗黑奇幻魔法指南与诅咒解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d1b4e;
+            --accent-color: #ff4757;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-dark: #0f0c29;
+            --bg-card: #1a1638;
+            --bg-hover: #2a2360;
+            --border-color: #3e3570;
+            --gold: #ffd700;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #302b63 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 12, 41, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(45deg, var(--accent-color), #ff6b81);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: url('https://picsum.photos/seed/magicqueen/1920/1080') no-repeat center center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 12, 41, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: var(--gold);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 40px;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #ffea00;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '★';
+            color: var(--accent-color);
+        }
+
+        .section-link {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* Categories Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--gold);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #2a2360;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: var(--gold);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        /* Featured Content (List Style) */
+        .featured-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .list-item {
+            display: flex;
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 8px;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .list-item:hover {
+            border-color: var(--gold);
+        }
+
+        .list-rank {
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            text-align: center;
+            margin-right: 1rem;
+        }
+
+        .list-item:nth-child(1) .list-rank { color: var(--gold); }
+        .list-item:nth-child(2) .list-rank { color: #c0c0c0; }
+        .list-item:nth-child(3) .list-rank { color: #cd7f32; }
+
+        .list-content {
+            flex: 1;
+        }
+
+        .list-title {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .list-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .list-tag {
+            padding: 4px 8px;
+            background: rgba(255, 71, 87, 0.2);
+            color: var(--accent-color);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        /* Safety Warning */
+        .warning-box {
+            background: rgba(255, 71, 87, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #050410;
+            padding: 3rem 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            nav {
+                display: none;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>☾</span> 魔咒女王
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">分类大全</a></li>
+                    <li><a href="#">施法指南</a></li>
+                    <li><a href="#">禁忌档案</a></li>
+                    <li><a href="#">社区交流</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-btn">探索魔法</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>魔咒女王</h1>
+                <p>解锁潜藏在语言与符号背后的禁忌力量，探索暗黑奇幻世界的魔法奥秘。</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="输入咒语名称、效果或角色...">
+                    <button type="button">搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Safety Warning -->
+            <div class="warning-box">
+                <div class="warning-title">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    魔法警示
+                </div>
+                <p>本站内容仅供学术研究、文学创作及游戏设定参考。现实世界中，任何形式的魔法施法、诅咒仪式均属于超自然范畴，请勿尝试，以免引发不必要的误解或恐慌。</p>
+            </div>
+
+            <!-- Categories -->
+            <section id="categories">
+                <div class="section-header">
+                    <h2 class="section-title">咒语分类体系</h2>
+                    <a href="#" class="section-link">查看完整目录 &rarr;</a>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/curse/400/250" alt="诅咒魔法">
+                            <span class="card-badge">攻击型</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">诅咒与厄运</h3>
+                            <p class="card-desc">探讨从轻微的不顺到毁灭性打击的各种诅咒形式，包括元素诅咒、精神控制及因果律伤害。</p>
+                            <div class="card-meta">
+                                <span>243 种咒语</span>
+                                <span>高危等级</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/buff/400/250" alt="增益魔法">
+                            <span class="card-badge">辅助型</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">祝福与强化</h3>
+                            <p class="card-desc">提升生命值、魔力上限、防御力及感知能力的正面魔法，是冒险者不可或缺的技能。</p>
+                            <div class="card-meta">
+                                <span>189 种咒语</span>
+                                <span>安全等级</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/summon/400/250" alt="召唤魔法">
+                            <span class="card-badge">特殊型</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">召唤与契约</h3>
+                            <p class="card-desc">与异界生物签订契约，召唤元素精灵、恶魔或亡灵生物协助战斗或执行任务。</p>
+                            <div class="card-meta">
+                                <span>156 种咒语</span>
+                                <span>契约风险</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Featured / Top Spells -->
+            <section id="featured">
+                <div class="section-header">
+                    <h2 class="section-title">魔咒女王精选档案</h2>
+                    <a href="#" class="section-link">阅读更多 &rarr;</a>
+                </div>
+                <div class="featured-list">
+                    <div class="list-item">
+                        <div class="list-rank">01</div>
+                        <div class="list-content">
+                            <h3 class="list-title">深渊凝视 · 噬魂咒 <span class="list-tag">禁忌</span></h3>
+                            <p class="list-excerpt">源自古老亡灵法师的禁术，通过直视对方灵魂来汲取生命力，施法者需承受巨大的精神反噬。</p>
+                        </div>
+                        <div class="list-tag">SSR</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">02</div>
+                        <div class="list-content">
+                            <h3 class="list-title">时间回溯 · 晨曦之光</h3>
+                            <p class="list-excerpt">能够将局部区域的时间倒流数秒，常用于躲避致命攻击或修正施法失误，消耗极大魔力。</p>
+                        </div>
+                        <div class="list-tag">SR</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">03</div>
+                        <div class="list-content">
+                            <h3 class="list-title">幻术 · 现实扭曲</h3>
+                            <p class="list-excerpt">制造极度逼真的幻象，甚至能改变感官体验，让敌人误以为身处火海或深渊。</p>
+                        </div>
+                        <div class="list-tag">R</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">04</div>
+                        <div class="list-content">
+                            <h3 class="list-title">元素风暴 · 风之怒</h3>
+                            <p class="list-excerpt">操控气流形成致命的龙卷风，范围广、破坏力强，是群体战斗中的核心技能。</p>
+                        </div>
+                        <div class="list-tag">R</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">05</div>
+                        <div class="list-content">
+                            <h3 class="list-title">治疗术 · 圣光庇护</h3>
+                            <p class="list-excerpt">恢复伤口并净化负面状态，虽然基础但极其稳定，是牧师和骑士的标准技能。</p>
+                        </div>
+                        <div class="list-tag">N</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guide Section -->
+            <section id="guide">
+                <div class="section-header">
+                    <h2 class="section-title">施法入门指南</h2>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">魔力共鸣原理</h3>
+                            <p class="card-desc">理解元素与灵魂的连接方式，如何通过冥想和呼吸调整魔力回路，是成为施法者的第一步。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">咒语语法的结构</h3>
+                            <p class="card-desc">分析拉丁语、古精灵语等咒语的构词逻辑，掌握主语、动词与宾语的排列组合技巧。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">施法者的自我修养</h3>
+                            <p class="card-desc">探讨施法过程中可能遇到的精神污染、魔力过载以及如何建立心理防御机制。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <span>☾</span> 魔咒女王
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">
+                    致力于收集、整理和分析奇幻文学与游戏中的魔法体系，为创作者和爱好者提供详尽的参考资料。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">魔法图鉴</a></li>
+                    <li><a href="#">角色背景</a></li>
+                    <li><a href="#">世界观设定</a></li>
+                    <li><a href="#">最新更新</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关分类</h4>
+                <ul>
+                    <li><a href="#">黑魔法</a></li>
+                    <li><a href="#">白魔法</a></li>
+                    <li><a href="#">亡灵术</a></li>
+                    <li><a href="#">炼金术</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">加入创作组</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 魔咒女王. All Rights Reserved. 本站内容均为虚构设定，请理性参考。
+        </div>
+    </footer>
+
+</body>
+                          </html>
