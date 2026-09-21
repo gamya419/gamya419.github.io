@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="王室佳宝官方网站，提供高端巧克力、糖果及甜点礼盒的选购指南，涵盖品牌故事、产品系列、营养科普及节日礼赠建议。">
+    <meta name="keywords" content="王室佳宝, 巧克力, 糖果, 礼盒, 甜点, 品牌故事, 节日礼品">
+    <title>王室佳宝-高端巧克力品牌与精选礼盒指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-gold: #C5A059;
+            --primary-dark: #2C2C2C;
+            --secondary-gold: #E8D5A3;
+            --bg-cream: #FDFBF7;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #b08d4b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/chocolatehero/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: var(--bg-cream);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Product Showcase */
+        .products {
+            padding: 5rem 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .add-btn {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover {
+            background-color: var(--primary-gold);
+        }
+
+        /* Brand Story */
+        .brand-story {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .story-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .story-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .story-features {
+            margin-top: 2rem;
+        }
+
+        .story-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .story-features li::before {
+            content: '✓';
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        /* Buying Guide */
+        .guide {
+            padding: 5rem 0;
+            background-color: var(--bg-cream);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .guide-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .guide-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            border-left: 4px solid var(--primary-gold);
+            padding-left: 1rem;
+        }
+
+        .guide-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-dark);
+        }
+
+        .faq-question:hover {
+            color: var(--primary-gold);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .story-container, .guide-grid {
+                flex-direction: column;
+            }
+            .story-image, .guide-card {
+                width: 100%;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">王室<span>佳宝</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#products">产品系列</a></li>
+                    <li><a href="#about">品牌故事</a></li>
+                    <li><a href="#guide">选购指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">加入会员</a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>王室佳宝 · 奢华甜蜜体验</h1>
+                <p>传承百年匠心工艺，甄选全球优质可可原料。每一颗巧克力都承载着皇室般的尊贵礼遇，为您的生活增添一抹醇厚甜香。</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#products" class="btn btn-primary">探索产品</a>
+                    <a href="#guide" class="btn btn-outline" style="color: white; border-color: white; margin-left: 1rem;">选购指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👑</div>
+                        <h3>皇室品质认证</h3>
+                        <p>严格遵循传统比利时工艺标准，每一批次产品均经过多重质量检测，确保口感纯正与安全。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🍫</div>
+                        <h3>100% 纯正可可</h3>
+                        <p>精选加纳、马达加斯加等世界顶级产区可可豆，保留天然果香与丝滑口感，拒绝代可可脂。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎁</div>
+                        <h3>定制礼盒服务</h3>
+                        <p>提供高端商务礼品定制服务，个性化包装与贺卡，让您的馈赠更具心意与档次。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>经典臻选系列</h2>
+                    <p>从浓郁黑巧到丝滑牛奶，总有一款适合您的味蕾</p>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/choco1/400/400" alt="皇家黑巧礼盒">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">经典系列</span>
+                            <h3 class="product-title">皇家黑巧礼盒</h3>
+                            <p class="product-desc">70%可可含量，带有明显的果酸与坚果香气，入口微苦回甘。</p>
+                            <div class="product-footer">
+                                <span class="price">¥298.00</span>
+                                <button class="add-btn">加入购物车</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/choco2/400/400" alt="丝绒牛奶巧克力">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">经典系列</span>
+                            <h3 class="product-title">丝绒牛奶巧克力</h3>
+                            <p class="product-desc">入口即化，奶香浓郁，适合儿童及喜欢甜食的消费者。</p>
+                            <div class="product-footer">
+                                <span class="price">¥168.00</span>
+                                <button class="add-btn">加入购物车</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/choco3/400/400" alt="松露巧克力套装">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">手工系列</span>
+                            <h3 class="product-title">松露巧克力套装</h3>
+                            <p class="product-desc">手工捶打塑形，内馅包含酒心、榛子与覆盆子等多种口味。</p>
+                            <div class="product-footer">
+                                <span class="price">¥358.00</span>
+                                <button class="add-btn">加入购物车</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/choco4/400/400" alt="节日限定版">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">节日限定</span>
+                            <h3 class="product-title">圣诞限定版</h3>
+                            <p class="product-desc">融入白兰地与肉桂风味，搭配圣诞主题包装，节日气氛拉满。</p>
+                            <div class="product-footer">
+                                <span class="price">¥458.00</span>
+                                <button class="add-btn">加入购物车</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" class="btn btn-outline">查看所有产品</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Story -->
+        <section id="about" class="brand-story">
+            <div class="container">
+                <div class="story-container">
+                    <div class="story-image">
+                        <img src="https://picsum.photos/seed/craftsman/600/400" alt="巧克力制作工艺">
+                    </div>
+                    <div class="story-content">
+                        <h2>匠心传承，始于1902</h2>
+                        <p>王室佳宝品牌创立于1902年，源自欧洲古老的巧克力工坊。创始人坚信，巧克力不仅是糖果，更是一种艺术表达。</p>
+                        <p>我们坚持每天清晨手工调温，确保每一块巧克力都拥有完美的光泽与口感。从原料的筛选到包装的封缄，每一个环节都凝聚着制匠人的心血。</p>
+                        <ul class="story-features">
+                            <li>传承百年的独家调温配方</li>
+                            <li>全球直采优质可可豆源</li>
+                            <li>全程冷链运输，保证新鲜</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buying Guide -->
+        <section id="guide" class="guide">
+            <div class="container">
+                <div class="section-title">
+                    <h2>选购与品鉴指南</h2>
+                    <p>如何挑选最适合的巧克力，以及正确的品鉴方法</p>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>如何挑选适合的巧克力</h3>
+                        <ul class="guide-list">
+                            <li><strong>看可可含量：</strong>可可含量越高，苦味越重，抗氧化成分也越多。70%以上适合成人品尝。</li>
+                            <li><strong>看配料表：</strong>优质巧克力配料表应简单，主要成分为可可液块、可可脂和糖。</li>
+                            <li><strong>看外观：</strong>表面应光滑有光泽，敲击时有清脆的碎裂声。</li>
+                            <li><strong>闻香气：</strong>不应有化学香精味，应有自然的咖啡、坚果或水果香气。</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card">
+                        <h3>巧克力品鉴小贴士</h3>
+                        <ul class="guide-list">
+                            <li><strong>温度适宜：</strong>最佳品鉴温度为18-22摄氏度，过高或过低都会影响风味。</li>
+                            <li><strong>小口品尝：</strong>不要一次吞下，让其在舌尖停留几秒，感受风味层次。</li>
+                            <li><strong>搭配建议：</strong>黑巧适合搭配红酒、咖啡或雪茄；牛奶巧适合搭配茶或白兰地。</li>
+                            <li><strong>保存方法：</strong>请置于阴凉干燥处，避免阳光直射和高温，开封后请尽快食用。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>关于王室佳宝产品及服务的解答</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">王室佳宝的产品是否含有过敏原？</div>
+                        <div class="faq-answer">
+                            <p>我们的部分产品含有坚果、牛奶、鸡蛋等常见过敏原。购买前请务必仔细查看产品包装上的配料表及过敏原提示。如有特殊饮食需求，建议咨询客服。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">礼盒支持定制刻字服务吗？</div>
+                        <div class="faq-answer">
+                            <p>是的，我们提供高端商务礼盒的免费刻字服务。您在下单时可在备注栏填写刻字内容，或者联系我们的专属客服进行安排。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">巧克力在运输过程中会融化吗？</div>
+                        <div class="faq-answer">
+                            <p>我们使用专业的冷链包装和保温材料，确保在正常天气条件下，巧克力能安全送达。如果您身处高温地区，建议选择次日达服务。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>王室佳宝</h3>
+                    <p>致力于为全球消费者提供最纯正、最奢华的巧克力体验。让甜蜜成为生活的常态。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">产品中心</a></li>
+                        <li><a href="#">会员中心</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>产品分类</h4>
+                    <ul>
+                        <li><a href="#">黑巧克力</a></li>
+                        <li><a href="#">牛奶巧克力</a></li>
+                        <li><a href="#">松露系列</a></li>
+                        <li><a href="#">节日限定</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 王室佳宝 All Rights Reserved. 仅供展示，非真实商业网站。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Simple Mobile Menu Toggle (Visual Only)
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '80px';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.backgroundColor = 'white';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
