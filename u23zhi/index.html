@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="u23直播 - 提供高清稳定的U23亚洲杯赛事直播平台，实时比分、赛程查询及精彩集锦，专注于年轻球员精彩对决。">
+    <meta name="keywords" content="u23直播, U23亚洲杯直播, U23世界杯直播, 足球直播, 青年足球比赛">
+    <title>u23直播 - U23亚洲杯世界杯赛事高清直播平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #fbbc04;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --accent-green: #34a853;
+            --accent-red: #ea4335;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            color: var(--text-main);
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            padding: 0 12px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(26,115,232,0.2) 0%, rgba(18,18,18,0.9) 100%),
+                        url('https://picsum.photos/seed/soccer/1920/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1557b0;
+        }
+
+        /* Live Match Section */
+        .section-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .live-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .match-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .match-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-color: var(--primary-color);
+        }
+
+        .match-banner {
+            height: 180px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .match-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent-red);
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .match-info {
+            padding: 16px;
+        }
+
+        .match-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .team-icon {
+            width: 32px;
+            height: 32px;
+            background: #444;
+            border-radius: 50%;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .team-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .score {
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 10px;
+            color: var(--text-sub);
+        }
+
+        .match-meta {
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .status {
+            color: var(--accent-green);
+        }
+
+        /* Upcoming Schedule */
+        .schedule-list {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #333;
+            transition: background 0.2s;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-item:hover {
+            background: #2a2a2a;
+        }
+
+        .date-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #2a2a2a;
+            padding: 8px;
+            border-radius: 6px;
+            margin-right: 16px;
+            min-width: 70px;
+        }
+
+        .date-box .day {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .date-box .month {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .match-details {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .match-teams {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .match-teams .team-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .match-teams .vs {
+            color: var(--text-sub);
+            font-size: 12px;
+            margin: 0 8px;
+        }
+
+        .match-time {
+            font-size: 14px;
+            color: var(--text-sub);
+            background: #333;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        .guide-item {
+            text-align: center;
+        }
+
+        .guide-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .guide-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .guide-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 0 16px 16px;
+            color: var(--text-sub);
+            font-size: 14px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .header-container { flex-direction: column; height: auto; padding: 12px; gap: 12px; }
+            nav ul { gap: 12px; font-size: 14px; }
+            .search-box { width: 100%; }
+            .search-box input { width: 100%; }
+            .match-grid { grid-template-columns: 1fr; }
+            .schedule-item { flex-direction: column; text-align: center; gap: 10px; }
+            .date-box { flex-direction: row; gap: 8px; }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span>U23直播</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">赛程直播</a></li>
+                <li><a href="#">赛程表</a></li>
+                <li><a href="#">积分榜</a></li>
+                <li><a href="#">新闻资讯</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索赛事或球队...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>见证青春力量，畅享U23精彩对决</h1>
+            <p>实时直播U23亚洲杯、U23世界杯等青年足球赛事，高清画质，极速解析，为您呈现最纯粹的足球激情。</p>
+            <a href="#live" class="btn-primary">立即观看直播</a>
+        </div>
+    </section>
+
+    <section class="section-container" id="live">
+        <div class="section-header">
+            <h2 class="section-title">正在直播</h2>
+            <div class="live-tabs">
+                <div class="tab active">全部</div>
+                <div class="tab">亚洲杯</div>
+                <div class="tab">世界杯预选</div>
+            </div>
+        </div>
+
+        <div class="match-grid">
+            <!-- Match Card 1 -->
+            <article class="match-card">
+                <div class="match-banner">
+                    <img src="https://picsum.photos/seed/u23match1/400/250" alt="比赛封面">
+                    <div class="live-badge">LIVE</div>
+                </div>
+                <div class="match-info">
+                    <h3 class="match-title">U23亚洲杯小组赛 A组：日本 vs 韩国</h3>
+                    <div class="teams">
+                        <div class="team">
+                            <div class="team-icon">🇯🇵</div>
+                            <span class="team-name">日本</span>
+                        </div>
+                        <div class="score">2 - 1</div>
+                        <div class="team">
+                            <div class="team-icon">🇰🇷</div>
+                            <span class="team-name">韩国</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span class="status">直播中 78'</span>
+                        <span>进球数：3</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Match Card 2 -->
+            <article class="match-card">
+                <div class="match-banner">
+                    <img src="https://picsum.photos/seed/u23match2/400/250" alt="比赛封面">
+                    <div class="live-badge">LIVE</div>
+                </div>
+                <div class="match-info">
+                    <h3 class="match-title">U23世界杯预选赛：中国 vs 乌兹别克</h3>
+                    <div class="teams">
+                        <div class="team">
+                            <div class="team-icon">🇨🇳</div>
+                            <span class="team-name">中国</span>
+                        </div>
+                        <div class="score">0 - 0</div>
+                        <div class="team">
+                            <div class="team-icon">🇺🇿</div>
+                            <span class="team-name">乌兹别克</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span class="status">直播中 45'</span>
+                        <span>进球数：0</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Match Card 3 -->
+            <article class="match-card">
+                <div class="match-banner">
+                    <img src="https://picsum.photos/seed/u23match3/400/250" alt="比赛封面">
+                    <div class="live-badge">LIVE</div>
+                </div>
+                <div class="match-info">
+                    <h3 class="match-title">U23亚洲杯：伊朗 vs 澳大利亚</h3>
+                    <div class="teams">
+                        <div class="team">
+                            <div class="team-icon">🇮🇷</div>
+                            <span class="team-name">伊朗</span>
+                        </div>
+                        <div class="score">3 - 2</div>
+                        <div class="team">
+                            <div class="team-icon">🇦🇺</div>
+                            <span class="team-name">澳大利亚</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span class="status">直播中 90'</span>
+                        <span>进球数：5</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">近期赛程</h2>
+            <a href="#" style="color: var(--primary-color); font-size: 14px;">查看全部 &rarr;</a>
+        </div>
+
+        <div class="schedule-list">
+            <div class="schedule-item">
+                <div class="date-box">
+                    <span class="day">15</span>
+                    <span class="month">10月</span>
+                </div>
+                <div class="match-details">
+                    <div class="match-teams">
+                        <span class="team-name">沙特阿拉伯</span>
+                        <span class="vs">VS</span>
+                        <span class="team-name">泰国</span>
+                    </div>
+                    <span class="match-time">19:30</span>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="date-box">
+                    <span class="day">15</span>
+                    <span class="month">10月</span>
+                </div>
+                <div class="match-details">
+                    <div class="match-teams">
+                        <span class="team-name">越南</span>
+                        <span class="vs">VS</span>
+                        <span class="team-name">印度尼西亚</span>
+                    </div>
+                    <span class="match-time">22:00</span>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="date-box">
+                    <span class="day">16</span>
+                    <span class="month">10月</span>
+                </div>
+                <div class="match-details">
+                    <div class="match-teams">
+                        <span class="team-name">阿联酋</span>
+                        <span class="vs">VS</span>
+                        <span class="team-name">巴林</span>
+                    </div>
+                    <span class="match-time">21:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <div class="guide-section">
+            <h2 class="section-title">使用指南</h2>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <div class="guide-icon">📺</div>
+                    <h3 class="guide-title">高清流畅</h3>
+                    <p class="guide-desc">支持多倍速播放与高清画质切换，告别卡顿。</p>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">📱</div>
+                    <h3 class="guide-title">多端同步</h3>
+                    <p class="guide-desc">手机、电脑、平板无缝切换，随时随地看球。</p>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">⚽</div>
+                    <h3 class="guide-title">专业数据</h3>
+                    <p class="guide-desc">实时进球、黄牌红牌统计，掌控比赛节奏。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-container">
+        <h2 class="section-title" style="margin-bottom: 24px;">常见问题</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">u23直播是否免费？</div>
+            <div class="faq-answer">本平台大部分U23亚洲杯及世界杯预选赛赛事提供免费直播服务，部分特殊场次可能需要观看广告解锁。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如何观看直播？</div>
+            <div class="faq-answer">进入对应赛事页面，点击“立即观看”按钮，选择清晰度即可开始观看，无需下载任何APP。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">直播延迟高怎么办？</div>
+            <div class="faq-answer">建议使用电脑端Chrome浏览器观看，并关闭其他占用带宽的程序。如遇延迟，可尝试切换备用线路。</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">平台简介</a></li>
+                <li><a href="#">免责声明</a></li>
+                <li><a href="#">版权声明</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>赛事中心</h4>
+            <ul>
+                <li><a href="#">U23亚洲杯</a></li>
+                <li><a href="#">U23世界杯</a></li>
+                <li><a href="#">世预赛</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助支持</h4>
+            <ul>
+                <li><a href="#">观看指南</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">意见反馈</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 U23直播平台 版权所有 | 仅供演示与测试使用
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Tab Switching Logic
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', event => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            // In a real app, this would filter the match list
+        });
+    });
+</script>
+
+</body>
+  </html>
